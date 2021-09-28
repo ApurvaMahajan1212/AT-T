@@ -23,18 +23,19 @@ public class DbConnectionCheckExample {
 		// Step 1: Loading or
 		// registering IBM DB2 JDBC driver class
 		try {
-			Class.forName("com.ibm.db2.jcc.DB2Driver");
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
 		} catch (ClassNotFoundException cnfex) {
 			System.out.println("Problem in" + " loading or registering IBM DB2 JDBC driver");
 			cnfex.printStackTrace();
 		}
 
 		// Step 2: Opening database connection
+		
 		try {
 
 			// Step 2.A: Create and
 			// get connection using DriverManager class
-			connection = DriverManager.getConnection("jdbc:db2://localhost:50002/benchresources", "test", "test@123");
+			connection = DriverManager.getConnection("jdbc:jtds:sqlserver://paz-seba1.it.att.com/security/security.asmx", "test", "test@123");
 
 			// Step 2.B: Creating JDBC Statement
 			statement = connection.createStatement();
